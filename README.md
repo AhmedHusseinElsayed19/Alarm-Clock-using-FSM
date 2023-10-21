@@ -1,16 +1,7 @@
-# Alarm-Clock-using-FSM
-The first task is to create a 24-hour Clock with a resolution of 1 millisecond.Since the scheduler already uses a timer
-callback with a resolution of 1 millisecond, you can extend its ISR. With defining a private time-keeping variable of type systemTime_t for storing the current time and increment it every millisecond.
-When the microcontroller is powered up, the actual time is not known. The user has to set the time
-manually using the buttons. 
-At this stage, the display shows an uninitialized clock using the format HH:MM. The second display line may show a request for the user to set time. First, the hour has to be
-set by repeatedly pressing the Rotary Button. After pressing the Joystick Button, the minutes have to be set via the Rotary Button. 
-Pressing the Joystick Button again updates the system time and starts the clock. 
-In this normal operation mode the time is shown in the format HH:MM:SS. In this state, the user can press the Rotary Button to enable the alarm or to disable the alarm. If the Joystick Button is pressed,the alarm time can be set. In this mode line 1 shows the alarm time instead of the current system time
-using the format HH:MM. 
-If the alarm is enabled and the actual time matches the alarm time, the red LED shall toggle with 4 Hz. The alarm shall stop, if any button is pressed or 5 seconds have passed.
-The alarm must only be triggered if the clock is in its normal operating mode, i.e., it must not be triggered while the alarm time is being modified.
-In addition, the LEDs are used for the following functionality:
- The green LED blinks synchronously with the counter of the seconds.
- The yellow LED is on, if and only if the alarm is enabled.
- The red LED is flashing with 4 Hz during alarm, and it is off otherwise.
+The initial task involves creating a 24-hour clock with a remarkable 1-millisecond resolution. To achieve this, we can expand the capabilities of the existing scheduler by leveraging its 1-millisecond timer callback. This expansion entails introducing a private time-keeping variable, denoted as "systemTime_t," to accurately store and update the current time at 1-millisecond intervals. When the microcontroller powers up, the clock lacks an initial time reference. Consequently, users must manually set the time via button interactions.
+
+During the uninitialized state, the display showcases a clock in HH:MM format, with an additional line guiding users to set the time. The hour setting is accomplished by repeatedly pressing the Rotary Button, and once completed, the Joystick Button is pressed to move on to configuring the minutes using the Rotary Button. A second press of the Joystick Button finalizes the time setting and initiates clock operation. During normal operation, the time is presented in HH:MM:SS format.
+
+In normal operation mode, users can employ the Rotary Button to toggle the alarm state, and the display is indicative of this status. If the Joystick Button is pressed, the alarm time can be set, and the display line shifts to showing the alarm time in HH:MM format. When the alarm is enabled and the system time aligns with the set alarm time, the red LED blinks at a 4 Hz frequency. The alarm ceases upon any button press or after a 5-second period elapses.
+
+Crucially, the alarm should only trigger when the clock is in its regular operational mode, meaning it must not be activated while configuring the alarm time. Furthermore, the LEDs serve various functionalities: the green LED blinks in sync with the seconds counter, the yellow LED indicates alarm activation, and the red LED flashes at 4 Hz during alarm activation and remains off otherwise.
